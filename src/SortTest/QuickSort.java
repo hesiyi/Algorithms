@@ -4,10 +4,10 @@ package SortTest;
  */
 public class QuickSort {  
     public static void main(String[] args) {  
-        int[] array = { 49, 38, 65, 97, 76, 13, 27 };  
+        int[] array = { 49, 38, 65, 97, 76, 13, 27 ,49};  
         quickSort(array, 0, array.length - 1);  
         for (int i = 0; i < array.length; i++) {  
-            System.out.print(array[i] + " -- ");  
+            System.out.print(array[i] + "  ");  
         }  
     }  
   
@@ -40,12 +40,14 @@ public class QuickSort {
     public static int partitionByPivotValue(int[] array, int left, int right) {  
         int pivotValue = array[left];  
         // 枢轴选定后永远不变，最终在中间，前小后大  
-        while (left < right) {  
+        while (left < right) {
+        	//array[right]要大于等于prvotValue
             while (left < right && array[right] >= pivotValue) {  
                 --right;  
             }  
             // 将比枢轴小的元素移到低端，此时right位相当于空，等待低位比pivotkey大的数补上  
-            array[left] = array[right];  
+            array[left] = array[right];
+            //array[right]要小于等于prvotValue
             while (left < right && array[left] <= pivotValue) {  
                 ++left;  
             }  
